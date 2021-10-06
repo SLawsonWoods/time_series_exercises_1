@@ -15,6 +15,8 @@ def formatting(df):
     df.sale_date = pd.to_datetime(df.sale_date)
     # this gives you a df resetting the index to date which has to
     df = df.set_index('sale_date').sort_index()
+    # making a total sales column
+    df['sales_total'] = df.sale_amount * df.item_price
     # adding a month column
     df['month'] = df.index.strftime('%B')
     # adding a day of the week column
